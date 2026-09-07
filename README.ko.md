@@ -86,27 +86,39 @@ speak "I am the poem"
 
 ## 문법 정리 (Grammar Reference)
 
-> `*` = 아직 결정 전인 제안입니다.
+### 핵심 문법 (확정)
 
 | 키워드          | Eunoia 줄                         | 의미                              | Python                             |
 |-----------------|-----------------------------------|-----------------------------------|------------------------------------|
 | `let`           | `let hello be wow`                | 이름에 값을 부여                  | `hello = wow`                      |
 | `whisper`       | `whisper hello`                   | 값을 조용히 출력                  | `print(hello)`                     |
 | `speak`         | `speak "I am the poem"`           | 문자열을 또렷이 출력              | `print("I am the poem")`           |
-| `summon` `*`    | `summon requests`                 | 먼 곳에서 패키지를 불러 설치      | `pip install requests`             |
-| `embrace` `*`   | `embrace requests`                | 패키지를 품에 안아 사용           | `import requests`                  |
+| `summon`        | `summon requests`                 | 먼 곳에서 패키지를 불러 설치      | `pip install requests`             |
+| `embrace`       | `embrace requests`                | 패키지를 품에 안아 사용           | `import requests`                  |
+
+### 사칙연산 (확정)
+
+| 연산       | 시적 단어              | 예시                                | 의미          |
+|------------|------------------------|-------------------------------------|---------------|
+| `+`        | `and`, `with`          | `let sum be two and three`          | `sum = 2 + 3` |
+| `-`        | `without`              | `let rest be ten without four`      | `rest = 10-4` |
+| `×`        | `times`                | `let garden be five times six`      | `garden =5*6` |
+| `÷`        | `over`, `shared among` | `let share be a dozen over four`    | `share = 12/4`|
+| `%`        | `keeps`                | `let what be twelve keeps five`     | `12 % 5`      |
+
+숫자도 말로 씁니다: `one`, `two`, `three`, ..., `a dozen`.
+닫힌 단어장이므로 파서가 모호함 없이 구분합니다.
 
 ### 열린 질문
 
 | 질문                                        | 선택지                                | 현재 기울기     |
 |---------------------------------------------|---------------------------------------|-----------------|
 | `whisper`와 `speak`를 합칠까?               | 따로 / 하나로                          | 하나로          |
-| 설치와 불러오기, 어떤 단어로?                | `summon`+`embrace`, `summon`+`borrow`, ... | `summon`+`embrace` |
 | 소스 확장자는?                              | `.euo`, `.eunoia`, ...                | `.euo`          |
 
 ---
 
-## 패키지 문제 (제안)
+## 패키지 문제 (확정)
 
 파이썬은 `pip install`과 `import`를 씁니다. Eunoia는 **경험 전체**를 시적으로
 만들고 싶습니다 — **사용자는 절대 `pip install`을 입력하지 않습니다.** 대신 시
@@ -119,15 +131,7 @@ write a letter to the server at dawn
 ```
 
 부끄러운 `pip`의 일은 언어가 시 아래에서 조용히 처리합니다.
-
-후보 단어들:
-
-| 키워드    | 느낌                                        |
-|-----------|---------------------------------------------|
-| `summon`  | 밖에서 무언가를 불러들임 (설치)              |
-| `embrace` | 품에 안아들임 (불러와서 사용)                |
-| `borrow`  | 잠시 빌렸다가 돌려줌 (둘 다?)               |
-| `invoke`  | 힘을 발동시킴 (모호 — 옵션으로만)            |
+`borrow`와 `invoke`도 고려했지만 한 자리에 물러났습니다 — **`summon` + `embrace`** 가 이겼습니다.
 
 ---
 
@@ -167,7 +171,8 @@ write a letter to the server at dawn
 
 - [x] 저장소 생성
 - [x] 이름 결정: **Eunoia**
-- [ ] 문법 제안 확정 (열린 질문 해결)
+- [x] 핵심 문법 확정 (문법 정리 참고)
+- [ ] 남은 설계 질문 (whisper/speak, 확장자)
 - [ ] Python 렉서 (Lexer)
 - [ ] 파서 (Parser)
 - [ ] 인터프리터

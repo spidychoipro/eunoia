@@ -88,27 +88,39 @@ speak "I am the poem"
 
 ## Grammar Reference
 
-> `*` = proposal on the table — nothing is final yet.
+### Core (confirmed)
 
 | Keyword        | Eunoia line                          | Means                              | Python                              |
 |----------------|--------------------------------------|------------------------------------|-------------------------------------|
 | `let`          | `let hello be wow`                   | assign a value to a name           | `hello = wow`                       |
 | `whisper`      | `whisper hello`                      | print a value, softly              | `print(hello)`                      |
 | `speak`        | `speak "I am the poem"`              | print a string, aloud              | `print("I am the poem")`            |
-| `summon` `*`   | `summon requests`                    | install a package from afar        | `pip install requests`              |
-| `embrace` `*`  | `embrace requests`                   | bring a package into use           | `import requests`                   |
+| `summon`       | `summon requests`                    | install a package from afar        | `pip install requests`              |
+| `embrace`      | `embrace requests`                   | bring a package into use           | `import requests`                   |
+
+### Arithmetic (confirmed)
+
+| Operator | Poetic word         | Example                                | Means          |
+|----------|---------------------|----------------------------------------|----------------|
+| `+`      | `and`, `with`       | `let sum be two and three`             | `sum = 2 + 3`  |
+| `-`      | `without`           | `let rest be ten without four`         | `rest = 10-4`  |
+| `×`      | `times`             | `let garden be five times six`         | `garden =5*6`  |
+| `÷`      | `over`, `shared among` | `let share be a dozen over four`     | `share = 12/4` |
+| `%`      | `keeps`             | `let what be twelve keeps five`        | `12 % 5`       |
+
+Numbers are written as words: `one`, `two`, `three`, ..., `a dozen`.
+It's a closed word-list, so the parser knows them without ambiguity.
 
 ### Open Questions
 
 | Question                                             | Options                          | Lean              |
 |------------------------------------------------------|----------------------------------|-------------------|
 | Should `whisper` and `speak` be merged?              | separate / one keyword           | one keyword       |
-| Install vs. import — which words?                    | `summon`+`embrace`, `summon`+`borrow`, ... | `summon` + `embrace` |
 | Source extension?                                    | `.euo`, `.eunoia`, ...           | `.euo`            |
 
 ---
 
-## The Package Problem (proposal)
+## The Package Problem (confirmed)
 
 Python uses `pip install` and `import`. Eunoia wants the *whole* experience to
 be poetic — **the user never types `pip install`.** Instead, the poem itself
@@ -121,15 +133,7 @@ write a letter to the server at dawn
 ```
 
 The language quietly does the undignified work of `pip` underneath.
-
-Candidates for the words:
-
-| Keyword   | Feeling                                        |
-|-----------|------------------------------------------------|
-| `summon`  | call something in from outside (install)       |
-| `embrace` | take it into your arms (import/use)            |
-| `borrow`  | take it for a while, return it later (both?)   |
-| `invoke`  | call upon a power (vague — left as an option)  |
+`borrow` and `invoke` were considered but set aside — `summon` + `embrace` won.
 
 ---
 
@@ -169,7 +173,8 @@ Candidates for the words:
 
 - [x] Repository created
 - [x] Name decided: **Eunoia**
-- [ ] Grammar proposal finalized (open questions above)
+- [x] Core grammar confirmed (see Grammar Reference)
+- [ ] Remaining design questions (whisper/speak, extension)
 - [ ] Lexer in Python
 - [ ] Parser
 - [ ] Interpreter
