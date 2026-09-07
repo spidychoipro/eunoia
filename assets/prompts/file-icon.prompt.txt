@@ -1,0 +1,21 @@
+Eunoia file icon (.euo) — image generation prompt
+=================================================
+
+Two-line summary: an indigo squirclish tile holding a folded paper sheet with
+three handwritten poem lines and a small quill, readable down to 16px.
+
+---
+
+Simplified file-tile icon for ".euo" source files of the Eunoia language,
+where source code is a poem.
+
+A slightly rounded square tile (squircle) in deep indigo (#2B2D42) with a thin
+cream border. Inside: a folded-corner ivory paper sheet that is blank except
+for three short handwritten-style poetry lines stacked like verses, the middle
+line ending in a small amber star mark. A tiny fine-tipped black quill rests
+across the bottom-right corner of the sheet, its nib leaving a delicate ink
+swirl that merges into the star.
+
+Flat, minimal, high-contrast, crisp edges — must stay readable at 16px and
+recognizable at 128px. Subtle flat drop shadow outside the tile. Background:
+transparent or the cream paper tone; no extra text.

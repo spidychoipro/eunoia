@@ -1,0 +1,22 @@
+Eunoia Logo — image generation prompt
+=====================================
+
+Two-line summary: an elegant continuous-stroke quill nib that becomes a code
+chevron, surrounded by the five vowels drifting like stars.
+
+---
+
+Logo for "Eunoia", a poetic programming language.
+
+A single elegant quill-nib shape whose tip morphs into a lowercase code chevron,
+drawn in a single continuous stroke. Three or four thin falling drops of ink
+below, one drop becoming a tiny star. Around the emblem, the five vowels
+a e i o u float like constellations on the right side only.
+
+Minimal flat vector style, generous negative space, crisp clean geometry.
+Palette: deep indigo ink (#2B2D42) on warm cream paper (#F7F3E8), one amber
+accent (#E8A33D) for the star and vowels. Timeless literary seal aesthetic —
+think fountain pen meets infinity symbol meets haiku.
+
+Centered composition, no text, transparent or solid cream background,
+suitable for GitHub avatar at 128px and banners at 512px.
