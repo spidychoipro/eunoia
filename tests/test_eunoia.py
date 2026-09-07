@@ -100,6 +100,18 @@ class CommentTest(unittest.TestCase):
         self.assertEqual(run('let hello be "wow"  # a note\nwhisper hello\n'), "wow")
 
 
+class SoulTest(unittest.TestCase):
+    def test_whisper_the_soul(self):
+        out = run("whisper the soul\n")
+        self.assertTrue(out.startswith("The Soul of Eunoia"))
+        self.assertTrue(out.endswith("Let the last line matter."))
+
+    def test_soul_in_a_poem(self):
+        out = run('let hello be "wow"\nwhisper the soul\nwhisper hello\n')
+        self.assertIn("The Soul of Eunoia", out)
+        self.assertTrue(out.endswith("wow"))
+
+
 class ErrorTest(unittest.TestCase):
     def test_undefined_name(self):
         with self.assertRaises(EunoiaError):

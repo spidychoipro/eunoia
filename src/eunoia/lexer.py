@@ -64,7 +64,7 @@ def lex(text: str) -> list[Token]:
         elif ch == '"':
             end = text.find('"', i + 1)
             if end == -1:
-                raise LexError(f"line {line}: a string is left open")
+                raise LexError(f"line {line}: a string is left open, its words unanswered")
             raw.append(Token(STRING, text[i + 1:end], line))
             i = end + 1
         elif ch == "#":
@@ -77,7 +77,7 @@ def lex(text: str) -> list[Token]:
         else:
             m = _WORD.match(text, i)
             if not m:
-                raise LexError(f"line {line}: unexpected character {ch!r}")
+                raise LexError(f"line {line}: a strange mark {ch!r} that no poem knows")
             raw.append(Token(NAME, m.group(0), line))
             i = m.end()
     return _fold(raw)

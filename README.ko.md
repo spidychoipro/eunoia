@@ -94,6 +94,16 @@ eunoia recite poems/hello.euo
 eunoia chant        # 대화형 REPL
 ```
 
+## 에우노이아의 영혼 (The Soul of Eunoia)
+
+파이썬의 `import this`처럼, 한 줄이 언어의 신조를 불러냅니다:
+
+```
+whisper the soul
+```
+
+해보세요 — 모든 것을 말해주는 가장 짧은 시입니다.
+
 ---
 
 ## 문법 정리 (Grammar Reference)

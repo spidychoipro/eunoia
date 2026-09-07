@@ -95,6 +95,16 @@ eunoia recite poems/hello.euo
 eunoia chant        # a live REPL
 ```
 
+## The Soul of Eunoia
+
+Like Python's `import this`, one line calls forth the language's inner creed:
+
+```
+whisper the soul
+```
+
+Try it — it is the shortest poem that tells you everything.
+
 ---
 
 ## Grammar Reference

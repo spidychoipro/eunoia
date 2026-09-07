@@ -19,7 +19,7 @@ def run_file(path: str) -> None:
 
 
 def chant() -> None:
-    print("Eunoia — let us begin. (press the empty line to rest)")
+    print("Eunoia: let us begin. (press the empty line to rest)")
     interp = Interpreter()
     while True:
         try:
@@ -59,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
         try:
             run_file(path)
         except FileNotFoundError:
-            print(f"no poem found at {path}")
+            print(f"no poem lies at {path}")
             return 1
         except (LexError, ParseError, EunoiaError) as exc:
             print(f"the poem stumbles: {exc}")

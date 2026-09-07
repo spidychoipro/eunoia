@@ -57,6 +57,11 @@ class Embrace:
     name: str
 
 
+@dataclass
+class Soul:
+    pass
+
+
 class Parser:
     def __init__(self, tokens: list[Token]):
         self.tokens = tokens
@@ -96,20 +101,30 @@ class Parser:
                 return self._summon(tok)
             if tok.value == "embrace":
                 return self._embrace(tok)
-        raise ParseError(f"line {tok.line}: {tok.value or tok.type} cannot open a verse")
+        raise ParseError(f"line {tok.line}: {tok.value or tok.type} has no place at the start of a verse")
 
     def _assign(self, tok: Token) -> Assign:
         name = self._advance()
         if name.type != NAME:
-            raise ParseError(f"line {name.line}: expect a name after 'let'")
+            raise ParseError(f"line {name.line}: let longs for a name to hold, and none followed")
         be = self._advance()
         if not (be.type == KEYWORD and be.value == "be"):
-            raise ParseError(f"line {be.line}: expect 'be' after the name")
+            raise ParseError(f"line {be.line}: after the name, the word 'be' should follow")
         value = self._expr()
         self._expect_eol(tok.line)
         return Assign(name.value, value)
 
-    def _whisper(self, tok: Token) -> Whisper:
+    def _whisper(self, tok: Token) -> Whisper | Soul:
+        if (
+            self._peek().type == NAME
+            and self._peek().value == "the"
+            and self._peek(1).type == NAME
+            and self._peek(1).value == "soul"
+        ):
+            self._advance()
+            self._advance()
+            self._expect_eol(tok.line)
+            return Soul()
         expr = self._expr()
         self._expect_eol(tok.line)
         return Whisper(expr)
@@ -117,7 +132,7 @@ class Parser:
     def _speak(self, tok: Token) -> Speak:
         s = self._advance()
         if s.type != STRING:
-            raise ParseError(f"line {s.line}: speak wants a quoted line")
+            raise ParseError(f"line {s.line}: speak asks for its words to be kept in quotes")
         self._expect_eol(tok.line)
         return Speak(s.value)
 
@@ -126,21 +141,21 @@ class Parser:
         while self._peek().type == NAME:
             packages.append(self._advance().value)
         if not packages:
-            raise ParseError(f"line {tok.line}: summon wants at least one name")
+            raise ParseError(f"line {tok.line}: summon asks for at least one name to call")
         self._expect_eol(tok.line)
         return Summon(packages)
 
     def _embrace(self, tok: Token) -> Embrace:
         name = self._advance()
         if name.type != NAME:
-            raise ParseError(f"line {name.line}: embrace wants a name")
+            raise ParseError(f"line {name.line}: embrace asks for a name to hold")
         self._expect_eol(tok.line)
         return Embrace(name.value)
 
     def _expect_eol(self, line: int) -> None:
         t = self._peek()
         if t.type not in (NEWLINE, EOF):
-            raise ParseError(f"line {line}: stray words before the line ends")
+            raise ParseError(f"line {line}: stray words linger before the line rests")
 
     def _expr(self) -> object:
         return self._additive()
@@ -169,4 +184,4 @@ class Parser:
             return Str(t.value)
         if t.type == NAME:
             return Var(t.value)
-        raise ParseError(f"line {t.line}: expected a value here")
+        raise ParseError(f"line {t.line}: a value was expected here, and none came")

@@ -5,7 +5,8 @@ import operator
 import subprocess
 import sys
 
-from .parser import Assign, BinOp, Embrace, Num, Speak, Str, Summon, Var, Whisper
+from .parser import Assign, BinOp, Embrace, Num, Soul, Speak, Str, Summon, Var, Whisper
+from .soul import SOUL
 
 _OPS = {
     "+": operator.add,
@@ -39,8 +40,10 @@ class Interpreter:
             self._summon(statement.packages)
         elif isinstance(statement, Embrace):
             self.env[statement.name] = self._embrace(statement.name)
+        elif isinstance(statement, Soul):
+            print(SOUL)
         else:
-            raise EunoiaError(f"unknown verse: {statement!r}")
+            raise EunoiaError(f"this verse is foreign to me: {statement!r}")
 
     def _eval(self, node: object) -> object:
         if isinstance(node, Num):
@@ -52,7 +55,7 @@ class Interpreter:
                 return self.env[node.name]
             except KeyError:
                 raise EunoiaError(
-                    f"the name '{node.name}' has not been given a meaning"
+                    f"no one has yet given meaning to the name '{node.name}'"
                 ) from None
         if isinstance(node, BinOp):
             return _OPS[node.op](self._eval(node.left), self._eval(node.right))
@@ -78,5 +81,5 @@ class Interpreter:
             return importlib.import_module(name)
         except ImportError:
             raise EunoiaError(
-                f"cannot find the muse '{name}' — try summoning it first"
+                f"the muse '{name}' has not been heard of, so summon it first"
             ) from None
