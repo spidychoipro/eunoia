@@ -1,94 +1,189 @@
-# Eunoia (에우노이아)
+# Eunoia (εὔνοια)
 
-> *아름다운 사고* — a programming language whose code reads like poetry.
+> *beautiful thinking* — a programming language whose code reads like poetry.
 
-**Eunoia** (from Greek *εὔνοια*, "beautiful thinking / well mind") is a programming
-language inspired by the idea that source code can feel like a poem.
-When you first open a file written in Eunoia, the hope is that your first thought is:
+- **[한국어 (Korean)](README.ko.md)**
+- **[English](README.md)**
 
-> *"Is this... a poem?"*
+**Eunoia** (from Greek *εὔνοια*, "beautiful thinking / well mind") is a
+programming language designed so that opening a source file feels like opening
+a book of verse. When you first look at Eunoia code, the hope is that your
+first thought is:
 
-Eunoia aims for **beauty through simplicity** — code that reads naturally, like a
-line of verse, while still being real, runnable software.
+> *"Wait... is this a poem?"*
 
-> **Note:** Eunoia is currently in the **design phase**. Syntax below is a
-> proposal for discussion, not yet implemented.
+This project is currently in the **design phase**. The grammar below is a
+living proposal, open to discussion, not yet implemented. The interpreter is
+planned to be written in **Python**.
 
 ---
 
 ## Why "Eunoia"?
 
-- **Eunoia** is the shortest English word containing all five vowels.
-- It means *beautiful thinking* / *harmonious mind*.
-- It sets the tone: this is a language about feeling, not just function.
+- It is the **shortest English word containing all five vowels** — *a e i o u*.
+- It means **beautiful thinking**, *a harmonious mind*.
+- It sets the tone: this is a language about **feeling** as much as **function**.
 
 ---
 
-## The Idea
+## The Original Idea
 
-Unlike Shakespeare (which is dramatic and theatrical — characters, scenes, acts),
-Eunoia leans into the **lyric poem**: quiet, simple, immediate.
+Every language hides a bridge between what you write and what the machine does.
+Eunoia leans into that bridge — not to be obscure, but to be **beautiful**.
 
-Compare:
+Python calls a source file `.py` and a compiled file `.pyc`. Eunoia turns that
+into a metaphor:
+
+| Artifact | Python | Eunoia | Meaning |
+|----------|--------|--------|---------|
+| Source file    | `.py`  | `.euo` | a **poem** *(시)* |
+| Compiled file  | `.pyc` | `.euoc` | a **poetry collection** *(시집)* |
+
+So — you don't "run" or "compile." You **recite** the poem, and when poems are
+**bound** together, a **poetry collection** is born.
+
+---
+
+## Design Principles
+
+1. **The surface is poetry.** The user only ever sees verse. The machine's dull
+   work (installing, importing, translating) happens invisibly below the poem.
+2. **Simplicity is beauty.** A keyword that does one thing well is more poetic
+   than one that does five.
+3. **Reads left to right, like a line of verse.**
+4. **Under the hood, it is real.** Eunoia compiles to something the machine
+   understands — it is not a toy, it is a poem that runs.
+5. **Korean soul, universal body.** The ideas are felt in Korean; the machine
+   works everywhere.
+
+---
+
+## A First Taste
 
 ```
-# Shakespeare (drama)
-Romeo: "Let us proceed upon the road"
-
-# Eunoia (lyric)
 let hello be wow
 whisper hello
 ```
 
----
+The Python equivalent:
 
-## Proposed Syntax (design draft)
-
-### Variables & Assignment
-
-```
-let hello be wow          # -> hello = wow
-let autumn be the sky's hue  # -> autumn = "the sky's hue"
+```python
+hello = "wow"
+print(hello)
 ```
 
-### Output
+Now imagine a whole file:
 
 ```
-whisper hello             # print a value, softly
-speak "I am the poem"     # print a string, aloud
+let autumn be the sky's hue
+
+let the rain whisper through the tired streets
+let the streetlights bow their silver heads
+
+whisper autumn
+speak "I am the poem"
 ```
-
-> **Open question:** should `whisper` and `speak` be merged into a single
-> output keyword? (leaning: yes — simpler is more poetic)
-
----
-
-### Packages & Imports (proposal — not decided)
-
-Python uses `pip install` and `import`. Eunoia wants to make that poetic too.
-Several candidates are under consideration — **nothing is chosen yet**:
-
-| Keyword | Meaning | Example |
-|---------|---------|---------|
-| `summon` | bring something in from outside | `summon from pip import requests` |
-| `invoke` | call upon a power | `invoke the pip -i requests` |
-| `borrow` | borrow temporarily | `borrow from the pip the requests` |
-
-Two concepts are currently mixed and need separating:
-- **installing** a package (`pip install`)
-- **importing/using** a package (`import`)
-
-Possible split: **install** → `summon`, **import/use** → `embrace` (끌어안는다).
-Your thoughts welcome.
 
 ---
 
-## Status
+## Grammar Reference
 
-- [x] Repository created (`spidychoipro/eunoia`)
-- [ ] Language name decided: **Eunoia**
-- [ ] Syntax design in progress
-- [ ] Interpreter implementation (Python)
+> `*` = proposal on the table — nothing is final yet.
+
+| Keyword        | Eunoia line                          | Means                              | Python                              |
+|----------------|--------------------------------------|------------------------------------|-------------------------------------|
+| `let`          | `let hello be wow`                   | assign a value to a name           | `hello = wow`                       |
+| `whisper`      | `whisper hello`                      | print a value, softly              | `print(hello)`                      |
+| `speak`        | `speak "I am the poem"`              | print a string, aloud              | `print("I am the poem")`            |
+| `summon` `*`   | `summon requests`                    | install a package from afar        | `pip install requests`              |
+| `embrace` `*`  | `embrace requests`                   | bring a package into use           | `import requests`                   |
+
+### Open Questions
+
+| Question                                             | Options                          | Lean              |
+|------------------------------------------------------|----------------------------------|-------------------|
+| Should `whisper` and `speak` be merged?              | separate / one keyword           | one keyword       |
+| Install vs. import — which words?                    | `summon`+`embrace`, `summon`+`borrow`, ... | `summon` + `embrace` |
+| Source extension?                                    | `.euo`, `.eunoia`, ...           | `.euo`            |
+
+---
+
+## The Package Problem (proposal)
+
+Python uses `pip install` and `import`. Eunoia wants the *whole* experience to
+be poetic — **the user never types `pip install`.** Instead, the poem itself
+summons:
+
+```
+summon requests
+embrace requests
+write a letter to the server at dawn
+```
+
+The language quietly does the undignified work of `pip` underneath.
+
+Candidates for the words:
+
+| Keyword   | Feeling                                        |
+|-----------|------------------------------------------------|
+| `summon`  | call something in from outside (install)       |
+| `embrace` | take it into your arms (import/use)            |
+| `borrow`  | take it for a while, return it later (both?)   |
+| `invoke`  | call upon a power (vague — left as an option)  |
+
+---
+
+## Eunoia vs. Shakespeare
+
+|                       | Shakespeare                      | Eunoia                        |
+|-----------------------|----------------------------------|-------------------------------|
+| Inspired by           | theatre / drama                  | lyric poetry                  |
+| Structure             | acts, scenes, characters, `goto` | verses, lines, gentle flow    |
+| Mood                  | grand, theatrical                | quiet, intimate               |
+| Feels like            | a play being acted               | a poem being whispered        |
+
+---
+
+## The CLI, as visioned
+
+| Command                    | Meaning                                       |
+|----------------------------|-----------------------------------------------|
+| `eunoia recite poem.euo`   | run a poem                                    |
+| `eunoia bind poem.euo`     | compile a poem into a poetry collection       |
+| `eunoia chant`             | interactive REPL — a live recitation          |
+
+---
+
+## The Poem Book
+
+`.euo` files are **poems**. A poem can:
+
+- declare verses (`let ... be ...`)
+- whisper and speak
+- summon and embrace packages
+- (future) breathe, pause, return — control flow as rhythm
+
+---
+
+## Roadmap
+
+- [x] Repository created
+- [x] Name decided: **Eunoia**
+- [ ] Grammar proposal finalized (open questions above)
+- [ ] Lexer in Python
+- [ ] Parser
+- [ ] Interpreter
+- [ ] Package summoning (pip bridge)
+- [ ] CLI (`recite` / `bind` / `chant`)
+- [ ] Example poems that actually run
+
+---
+
+## Contributing
+
+This is a design-phase project. Ideas are as welcome as code — especially
+poetic keywords, Korean-flavored metaphors, and naming debate. Open an issue
+or a pull request.
 
 ---
 
