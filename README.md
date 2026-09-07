@@ -12,9 +12,9 @@ first thought is:
 
 > *"Wait... is this a poem?"*
 
-This project is currently in the **design phase**. The grammar below is a
-living proposal, open to discussion, not yet implemented. The interpreter is
-planned to be written in **Python**.
+This project is in the **design phase**, with a working prototype that already
+implements the confirmed grammar below. The rest of the language is still open
+to discussion. The interpreter is written in **Python**.
 
 ---
 
@@ -61,6 +61,7 @@ So — you don't "run" or "compile." You **recite** the poem, and when poems are
 ## A First Taste
 
 ```
+let wow be "wow"
 let hello be wow
 whisper hello
 ```
@@ -68,20 +69,30 @@ whisper hello
 The Python equivalent:
 
 ```python
-hello = "wow"
+wow = "wow"
+hello = wow
 print(hello)
 ```
 
 Now imagine a whole file:
 
 ```
-let autumn be the sky's hue
+let autumn be "the sky's hue"
 
-let the rain whisper through the tired streets
-let the streetlights bow their silver heads
+let garden be five times six
+let share be a dozen over four
 
 whisper autumn
+whisper garden
 speak "I am the poem"
+```
+
+### Try it
+
+```bash
+pip install -e .
+eunoia recite poems/hello.euo
+eunoia chant        # a live REPL
 ```
 
 ---
@@ -174,13 +185,13 @@ The language quietly does the undignified work of `pip` underneath.
 - [x] Repository created
 - [x] Name decided: **Eunoia**
 - [x] Core grammar confirmed (see Grammar Reference)
+- [x] Lexer, parser, interpreter (recite works)
+- [x] `chant` REPL
 - [ ] Remaining design questions (whisper/speak, extension)
-- [ ] Lexer in Python
-- [ ] Parser
-- [ ] Interpreter
-- [ ] Package summoning (pip bridge)
-- [ ] CLI (`recite` / `bind` / `chant`)
-- [ ] Example poems that actually run
+- [ ] `bind` (compiling a poem into an anthology)
+- [ ] Package summoning demo (pip bridge works, not yet polished)
+- [ ] More example poems, escape hatch for foreign libraries
+- [ ] Neovim plugin
 
 ---
 

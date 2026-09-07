@@ -11,8 +11,9 @@ Eunoia로 작성된 코드를 처음 보는 순간 떠오르는 생각은 바로
 
 > *"잠깐... 이거 시 아니야?"*
 
-이 프로젝트는 현재 **설계 단계**입니다. 아래 문법은 아직 구현되지 않은 제안이며,
-논의를 통해 다듬어 갑니다. 인터프리터는 **Python**으로 작성할 예정입니다.
+이 프로젝트는 현재 **설계 단계**이지만, 아래 확인된 문법을 이미 구현한 **실행 가능한
+프로토타입**이 있습니다. 나머지 언어 부분은 여전히 논의할 여지가 있습니다.
+인터프리터는 **Python**으로 작성됩니다.
 
 ---
 
@@ -59,6 +60,7 @@ Eunoia는 그것을 하나의 비유로 만듭니다:
 ## 첫 맛보기
 
 ```
+let wow be "wow"
 let hello be wow
 whisper hello
 ```
@@ -66,20 +68,30 @@ whisper hello
 파이썬으로 옮기면:
 
 ```python
-hello = "wow"
+wow = "wow"
+hello = wow
 print(hello)
 ```
 
 이제 파일 전체를 상상해 보세요:
 
 ```
-let autumn be the sky's hue
+let autumn be "the sky's hue"
 
-let the rain whisper through the tired streets
-let the streetlights bow their silver heads
+let garden be five times six
+let share be a dozen over four
 
 whisper autumn
+whisper garden
 speak "I am the poem"
+```
+
+### 직접 실행하기
+
+```bash
+pip install -e .
+eunoia recite poems/hello.euo
+eunoia chant        # 대화형 REPL
 ```
 
 ---
@@ -172,13 +184,13 @@ write a letter to the server at dawn
 - [x] 저장소 생성
 - [x] 이름 결정: **Eunoia**
 - [x] 핵심 문법 확정 (문법 정리 참고)
+- [x] 렉서 · 파서 · 인터프리터 (recite 동작)
+- [x] `chant` REPL
 - [ ] 남은 설계 질문 (whisper/speak, 확장자)
-- [ ] Python 렉서 (Lexer)
-- [ ] 파서 (Parser)
-- [ ] 인터프리터
-- [ ] 패키지 소환 (pip 연결)
-- [ ] CLI (`recite` / `bind` / `chant`)
-- [ ] 실제로 실행되는 예제 시들
+- [ ] `bind` (시를 시집으로 컴파일)
+- [ ] 패키지 소환 데모 정리 (pip 연결은 동작, 아직 다듬을 것)
+- [ ] 더 많은 예제 시와 "남의 시 인용" 비상구
+- [ ] 네오빔 플러그인
 
 ---
 

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eunoia"
+version = "0.1.0"
+description = "A programming language whose code reads like poetry."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+[project.scripts]
+eunoia = "eunoia.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
