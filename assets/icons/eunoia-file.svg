@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Eunoia poem file (.euo)">
+  <rect x="16" y="16" width="480" height="480" rx="100" fill="#2B2D42"/>
+  <rect x="26" y="26" width="460" height="460" rx="92" fill="none" stroke="#F7F3E8" stroke-width="6"/>
+
+  <rect x="128" y="108" width="256" height="296" rx="20" fill="#F7F3E8"/>
+  <path d="M304 108 h 64 a 16 16 0 0 1 16 16 v 64 h -16 v -64 c 0 -9 7 -16 16 -16 h -80 Z" fill="#E4DCC8"/>
+
+  <rect x="156" y="176" width="132" height="12" rx="6" fill="#2B2D42" opacity="0.8"/>
+  <rect x="156" y="208" width="150" height="12" rx="6" fill="#2B2D42" opacity="0.55"/>
+  <g transform="translate(338 214)">
+    <path d="M0 -11 L4 -4 L11 0 L4 4 L0 11 L-4 4 L-11 0 L-4 -4 Z" fill="#E8A33D"/>
+  </g>
+  <rect x="156" y="240" width="104" height="12" rx="6" fill="#2B2D42" opacity="0.35"/>
+
+  <path d="M298 330 L402 384 L356 430 Z" fill="#2B2D42"/>
+  <path d="M308 350 L368 384 L330 402 Z" fill="#F7F3E8"/>
+  <path d="M326 372 Q 354 356 402 384" fill="none" stroke="#E8A33D" stroke-width="6" stroke-linecap="round"/>
+</svg>

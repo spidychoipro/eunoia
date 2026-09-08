@@ -1,8 +1,22 @@
-# Eunoia (εὔνοια)
+<p align="center">
+  <img src="assets/icons/eunoia.svg" alt="Eunoia" width="180">
+</p>
 
-> *beautiful thinking* — a programming language whose code reads like poetry.
+<h1 align="center">Eunoia (εὔνοια)</h1>
 
-**[English](README.md) · [한국어](README.ko.md)**
+<p align="center"><em>beautiful thinking</em> — a programming language whose code reads like poetry.</p>
+
+<p align="center">
+  <a href="README.md">English</a> · <a href="README.ko.md">한국어</a>
+</p>
+
+<p align="center">
+  <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2B2D42?style=flat-square">
+  <img alt="Python" src="https://img.shields.io/badge/python-3.9%2B-2B2D42?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-0.1.0-E8A33D?style=flat-square">
+  <img alt="punctuation" src="https://img.shields.io/badge/punctuation-no%20parentheses-E8A33D?style=flat-square">
+  <img alt="words" src="https://img.shields.io/badge/words-yes-F7F3E8?style=flat-square">
+</p>
 
 ---
 
@@ -258,6 +272,7 @@ src/eunoia/        the interpreter
 poems/             example poems (.euo) that actually run
 tests/             unit tests (python -m unittest)
 assets/prompts/    image prompts for the logo and the file icon
+assets/icons/      the logo and the .euo file icon, drawn as SVG
 ```
 
 ---
@@ -282,7 +297,7 @@ assets/prompts/    image prompts for the logo and the file icon
 - [ ] "Quote the foreign poet" escape hatch
 - [ ] Control flow as rhythm (breathe / until / whenever)
 - [ ] Neovim plugin
-- [ ] Real logo & file icon from the prompts
+- [x] Real logo & file icon (hand-drawn SVG)
 
 ---
 

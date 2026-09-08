@@ -1,8 +1,22 @@
-# Eunoia (에우노이아, εὔνοια)
+<p align="center">
+  <img src="assets/icons/eunoia.svg" alt="Eunoia" width="180">
+</p>
 
-> *아름다운 사고* — 코드가 시로 읽히는 프로그래밍 언어.
+<h1 align="center">Eunoia (에우노이아, εὔνοια)</h1>
 
-**[English](README.md) · [한국어](README.ko.md)**
+<p align="center"><em>아름다운 사고</em> — 코드가 시로 읽히는 프로그래밍 언어.</p>
+
+<p align="center">
+  <a href="README.md">English</a> · <a href="README.ko.md">한국어</a>
+</p>
+
+<p align="center">
+  <img alt="MIT" src="https://img.shields.io/badge/license-MIT-2B2D42?style=flat-square">
+  <img alt="Python" src="https://img.shields.io/badge/python-3.9%2B-2B2D42?style=flat-square">
+  <img alt="version" src="https://img.shields.io/badge/version-0.1.0-E8A33D?style=flat-square">
+  <img alt="punctuation" src="https://img.shields.io/badge/punctuation-no%20parentheses-E8A33D?style=flat-square">
+  <img alt="words" src="https://img.shields.io/badge/words-yes-F7F3E8?style=flat-square">
+</p>
 
 ---
 
@@ -254,6 +268,7 @@ src/eunoia/        인터프리터
 poems/             실제로 실행되는 예제 시 (.euo)
 tests/             단위 테스트 (python -m unittest)
 assets/prompts/    로고와 파일 아이콘 이미지 프롬프트
+assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 ```
 
 ---
@@ -278,7 +293,7 @@ assets/prompts/    로고와 파일 아이콘 이미지 프롬프트
 - [ ] "남의 시 인용" 비상구
 - [ ] 흐름을 리듬으로 (breathe / until / whenever)
 - [ ] 네오빔 플러그인
-- [ ] 프롬프트 기반 실제 로고·파일 아이콘
+- [x] 실제 로고·파일 아이콘 (손으로 그린 SVG)
 
 ---
 

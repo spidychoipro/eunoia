@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Eunoia">
+  <rect width="512" height="512" fill="#F7F3E8"/>
+  <circle cx="256" cy="256" r="224" fill="none" stroke="#2B2D42" stroke-width="4" stroke-dasharray="1 14" stroke-linecap="round" opacity="0.5"/>
+
+  <g transform="translate(32 16)">
+    <path d="M256 72 L310 132 L256 224 L202 132 Z" fill="#2B2D42"/>
+    <path d="M233 112 L279 112 L256 132 Z" fill="#E8A33D"/>
+    <path d="M256 72 L256 224" stroke="#F7F3E8" stroke-width="8" stroke-linecap="round"/>
+
+    <path d="M140 296 q 38 28 80 0 q 42 28 84 0" fill="none" stroke="#2B2D42" stroke-width="12" stroke-linecap="round"/>
+    <path d="M162 360 l 30 26 l -30 26" fill="none" stroke="#2B2D42" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M216 360 l 30 26 l -30 26" fill="none" stroke="#2B2D42" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+
+    <circle cx="328" cy="372" r="9" fill="#2B2D42"/>
+    <circle cx="348" cy="404" r="6" fill="#2B2D42" opacity="0.7"/>
+
+    <g transform="translate(380 140)">
+      <path d="M0 -18 L6 -6 L18 0 L6 6 L0 18 L-6 6 L-18 0 L-6 -6 Z" fill="#E8A33D"/>
+    </g>
+
+    <text x="392" y="244" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2B2D42">a</text>
+    <text x="428" y="280" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#2B2D42" opacity="0.85">e</text>
+    <text x="420" y="196" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#2B2D42" opacity="0.6">i</text>
+    <text x="444" y="322" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#2B2D42" opacity="0.7">o</text>
+    <text x="430" y="370" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#2B2D42" opacity="0.5">u</text>
+  </g>
+</svg>
