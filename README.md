@@ -2,31 +2,51 @@
 
 > *beautiful thinking* — a programming language whose code reads like poetry.
 
-- **[한국어 (Korean)](README.ko.md)**
-- **[English](README.md)**
+**[English](README.md) · [한국어](README.ko.md)**
 
-**Eunoia** (from Greek *εὔνοια*, "beautiful thinking / well mind") is a
+---
+
+## What is Eunoia?
+
+**Eunoia** (from Greek *εὔνοια*, "beautiful thinking / harmonious mind") is a
 programming language designed so that opening a source file feels like opening
 a book of verse. When you first look at Eunoia code, the hope is that your
 first thought is:
 
 > *"Wait... is this a poem?"*
 
-This project is in the **design phase**, with a working prototype that already
-implements the confirmed grammar below. The rest of the language is still open
-to discussion. The interpreter is written in **Python**.
+Eunoia is not a toy that *pretends* to be poetry. It is a real interpreter —
+written in plain Python, with no dependencies — that turns verse into running
+code. Every example in this README actually runs.
 
 ---
 
-## Why "Eunoia"?
+## Try it in thirty seconds
 
-- It is the **shortest English word containing all five vowels** — *a e i o u*.
-- It means **beautiful thinking**, *a harmonious mind*.
-- It sets the tone: this is a language about **feeling** as much as **function**.
+```bash
+git clone https://github.com/spidychoipro/eunoia.git
+cd eunoia
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+# source .venv/bin/activate
+
+pip install -e .
+eunoia recite poems/hello.euo
+```
+
+```text
+$ eunoia recite poems/hello.euo
+wow
+```
+
+That's it. No dependencies, no build step — just Python and your poem.
 
 ---
 
-## The Original Idea
+## The original idea: a poem, and a poetry collection
 
 Every language hides a bridge between what you write and what the machine does.
 Eunoia leans into that bridge — not to be obscure, but to be **beautiful**.
@@ -36,15 +56,155 @@ into a metaphor:
 
 | Artifact | Python | Eunoia | Meaning |
 |----------|--------|--------|---------|
-| Source file    | `.py`  | `.euo` | a **poem** *(시)* |
-| Compiled file  | `.pyc` | `.euoc` | a **poetry collection** *(시집)* |
+| Source file   | `.py`  | `.euo`  | a **poem** *(시)* |
+| Compiled file | `.pyc` | `.euoc` | a **poetry collection** *(시집)* |
 
-So — you don't "run" or "compile." You **recite** the poem, and when poems are
-**bound** together, a **poetry collection** is born.
+So you don't *run* a file — you **recite** it. When poems are `bind`-ed
+together (still on the roadmap), a **poetry collection** is born.
 
 ---
 
-## Design Principles
+## A first poem
+
+`poems/hello.euo`:
+
+```
+let wow be "wow"
+let hello be wow
+whisper hello
+```
+
+Every line maps straight to Python:
+
+```python
+wow = "wow"
+hello = wow
+print(hello)
+```
+
+More examples:
+
+```
+let autumn be "the sky's hue"
+
+let garden be five times six
+let share be a dozen over four
+
+whisper autumn
+whisper garden
+whisper share
+speak "I am the poem"
+```
+
+```text
+$ eunoia recite poems/autumn.euo
+the sky's hue
+30
+3
+I am the poem
+```
+
+---
+
+## Grammar reference
+
+Eunoia's own grammar has **no parentheses and no symbols** — only words, space,
+and a line break at the end of every verse.
+
+### Core statements
+
+| Keyword    | Eunoia line                 | Means                               | Python                       |
+|------------|-----------------------------|-------------------------------------|------------------------------|
+| `let`      | `let hello be wow`          | give a name a meaning               | `hello = wow`                |
+| `whisper`  | `whisper hello`             | print a value, softly               | `print(hello)`               |
+| `speak`    | `speak "I am the poem"`     | print a string, aloud               | `print("I am the poem")`     |
+| `summon`   | `summon requests`           | install a package from afar         | `pip install requests`       |
+| `embrace`  | `embrace requests`          | bring a package into use            | `import requests`            |
+
+### Arithmetic — spoken, not typed
+
+| Operator | Poetic word          | Example                                | Means          |
+|----------|----------------------|----------------------------------------|----------------|
+| `+`      | `and`, `with`        | `let sum be two and three`             | `sum = 2 + 3`  |
+| `-`      | `without`            | `let rest be ten without four`         | `rest = 10-4`  |
+| `×`      | `times`              | `let garden be five times six`         | `garden = 5*6` |
+| `÷`      | `over`, `shared among` | `let share be a dozen over four`      | `share = 12/4` |
+| `%`      | `keeps`              | `let what be twelve keeps five`        | `12 % 5`       |
+
+### Numbers are words
+
+`one` … `twelve`, `thirteen` … `nineteen`, the tens `twenty` … `ninety`, plus
+`a`, `an`, `dozen`, `score`, `hundred`, `thousand`, `million`, `billion`.
+
+```
+one hundred and five     → 100 + 5 = 105
+two dozen over four      → (2 × 12) / 4 = 6
+a score and one          → 20 + 1 = 21
+```
+
+Multiplication and division bind before addition and subtraction, just like
+you'd expect.
+
+### Comments
+
+Lines starting with `#` are quiet — they only speak to the reader, never to
+the machine.
+
+```
+let hello be "wow"  # a note nobody runs
+whisper hello
+```
+
+---
+
+## Whisper the soul
+
+Like Python's `import this`, one line calls forth the language's inner creed:
+
+```
+whisper the soul
+```
+
+```text
+$ echo "whisper the soul" > /tmp/the-soul.euo     # or any .euo file
+$ eunoia recite the-soul.euo
+The Soul of Eunoia
+
+Let each poem be honest,
+and each line worth reading twice.
+
+Let the surface be the whole sky;
+let the gears turn far below.
+
+Let a name be chosen with care,
+for it will be spoken softly many times.
+
+Let simplicity win over cleverness,
+let beauty win over noise.
+
+Let the machine kneel quietly,
+that the reader may stay in wonder.
+
+Let foreign poets be quoted with respect,
+their words set apart by marks.
+
+Let a whisper comfort more than a shout.
+
+Let the poem that runs
+still be a poem.
+
+Let errors be a gentle stumble,
+not a slammed door.
+
+Let the soul speak in one tongue
+while the body serves the whole world.
+
+Let the last line matter.
+```
+
+---
+
+## Design principles
 
 1. **The surface is poetry.** The user only ever sees verse. The machine's dull
    work (installing, importing, translating) happens invisibly below the poem.
@@ -58,135 +218,56 @@ So — you don't "run" or "compile." You **recite** the poem, and when poems are
 
 ---
 
-## A First Taste
+## Packages, invisibly
 
-```
-let wow be "wow"
-let hello be wow
-whisper hello
-```
-
-The Python equivalent:
-
-```python
-wow = "wow"
-hello = wow
-print(hello)
-```
-
-Now imagine a whole file:
-
-```
-let autumn be "the sky's hue"
-
-let garden be five times six
-let share be a dozen over four
-
-whisper autumn
-whisper garden
-speak "I am the poem"
-```
-
-### Try it
-
-```bash
-pip install -e .
-eunoia recite poems/hello.euo
-eunoia chant        # a live REPL
-```
-
-## The Soul of Eunoia
-
-Like Python's `import this`, one line calls forth the language's inner creed:
-
-```
-whisper the soul
-```
-
-Try it — it is the shortest poem that tells you everything.
-
----
-
-## Grammar Reference
-
-### Core (confirmed)
-
-| Keyword        | Eunoia line                          | Means                              | Python                              |
-|----------------|--------------------------------------|------------------------------------|-------------------------------------|
-| `let`          | `let hello be wow`                   | assign a value to a name           | `hello = wow`                       |
-| `whisper`      | `whisper hello`                      | print a value, softly              | `print(hello)`                      |
-| `speak`        | `speak "I am the poem"`              | print a string, aloud              | `print("I am the poem")`            |
-| `summon`       | `summon requests`                    | install a package from afar        | `pip install requests`              |
-| `embrace`      | `embrace requests`                   | bring a package into use           | `import requests`                   |
-
-### Arithmetic (confirmed)
-
-| Operator | Poetic word         | Example                                | Means          |
-|----------|---------------------|----------------------------------------|----------------|
-| `+`      | `and`, `with`       | `let sum be two and three`             | `sum = 2 + 3`  |
-| `-`      | `without`           | `let rest be ten without four`         | `rest = 10-4`  |
-| `×`      | `times`             | `let garden be five times six`         | `garden =5*6`  |
-| `÷`      | `over`, `shared among` | `let share be a dozen over four`     | `share = 12/4` |
-| `%`      | `keeps`             | `let what be twelve keeps five`        | `12 % 5`       |
-
-Numbers are written as words: `one`, `two`, `three`, ..., `a dozen`.
-It's a closed word-list, so the parser knows them without ambiguity.
-
-### Open Questions
-
-| Question                                             | Options                          | Lean              |
-|------------------------------------------------------|----------------------------------|-------------------|
-| Should `whisper` and `speak` be merged?              | separate / one keyword           | one keyword       |
-| Source extension?                                    | `.euo`, `.eunoia`, ...           | `.euo`            |
-
----
-
-## The Package Problem (confirmed)
-
-Python uses `pip install` and `import`. Eunoia wants the *whole* experience to
-be poetic — **the user never types `pip install`.** Instead, the poem itself
-summons:
+You never type `pip install`. The poem itself summons:
 
 ```
 summon requests
 embrace requests
-write a letter to the server at dawn
 ```
 
-The language quietly does the undignified work of `pip` underneath.
-`borrow` and `invoke` were considered but set aside — `summon` + `embrace` won.
+`summon` quietly does the undignified work of `pip` underneath, and `embrace`
+brings the module into your arms — into the poem's world. For libraries whose
+APIs are deeply Pythonic, the poem may "quote the foreign poet" — their exact
+syntax, set apart like a quotation — as a deliberate escape hatch (still on the
+roadmap).
 
 ---
 
 ## Eunoia vs. Shakespeare
 
-|                       | Shakespeare                      | Eunoia                        |
-|-----------------------|----------------------------------|-------------------------------|
-| Inspired by           | theatre / drama                  | lyric poetry                  |
-| Structure             | acts, scenes, characters, `goto` | verses, lines, gentle flow    |
-| Mood                  | grand, theatrical                | quiet, intimate               |
-| Feels like            | a play being acted               | a poem being whispered        |
+|                 | Shakespeare                        | Eunoia                     |
+|-----------------|------------------------------------|----------------------------|
+| Inspired by     | theatre / drama                    | lyric poetry               |
+| Structure       | acts, scenes, characters, `goto`   | verses, lines, gentle flow |
+| Mood            | grand, theatrical                  | quiet, intimate            |
+| Feels like      | a play being acted                 | a poem being whispered     |
 
 ---
 
-## The CLI, as visioned
+## Project structure
 
-| Command                    | Meaning                                       |
-|----------------------------|-----------------------------------------------|
-| `eunoia recite poem.euo`   | run a poem                                    |
-| `eunoia bind poem.euo`     | compile a poem into a poetry collection       |
-| `eunoia chant`             | interactive REPL — a live recitation          |
+```
+src/eunoia/        the interpreter
+  lexer.py         turns verse into tokens (words, numbers, operators)
+  parser.py        turns tokens into statements
+  interpreter.py   makes the poem run
+  soul.py          the inner creed, whispered on request
+  cli.py           recite & chant
+poems/             example poems (.euo) that actually run
+tests/             unit tests (python -m unittest)
+assets/prompts/    image prompts for the logo and the file icon
+```
 
 ---
 
-## The Poem Book
+## CLI
 
-`.euo` files are **poems**. A poem can:
-
-- declare verses (`let ... be ...`)
-- whisper and speak
-- summon and embrace packages
-- (future) breathe, pause, return — control flow as rhythm
+| Command                       | Meaning                                   |
+|-------------------------------|-------------------------------------------|
+| `eunoia recite <file.euo>`    | run a poem                                |
+| `eunoia chant`                | interactive recitation (REPL)             |
 
 ---
 
@@ -194,22 +275,22 @@ The language quietly does the undignified work of `pip` underneath.
 
 - [x] Repository created
 - [x] Name decided: **Eunoia**
-- [x] Core grammar confirmed (see Grammar Reference)
-- [x] Lexer, parser, interpreter (recite works)
-- [x] `chant` REPL
-- [ ] Remaining design questions (whisper/speak, extension)
-- [ ] `bind` (compiling a poem into an anthology)
-- [ ] Package summoning demo (pip bridge works, not yet polished)
-- [ ] More example poems, escape hatch for foreign libraries
+- [x] Core grammar confirmed and implemented
+- [x] `recite` and `chant`
+- [x] `whisper the soul`
+- [ ] `bind` — compiling poems into an anthology (`.euoc`)
+- [ ] "Quote the foreign poet" escape hatch
+- [ ] Control flow as rhythm (breathe / until / whenever)
 - [ ] Neovim plugin
+- [ ] Real logo & file icon from the prompts
 
 ---
 
 ## Contributing
 
-This is a design-phase project. Ideas are as welcome as code — especially
-poetic keywords, Korean-flavored metaphors, and naming debate. Open an issue
-or a pull request.
+This is a design-phase project. Ideas are as welcome as code — poetic keywords,
+Korean-flavored metaphors, and naming debate included. Open an issue or a pull
+request. And say hello to `whisper the soul`.
 
 ---
 
