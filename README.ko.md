@@ -57,6 +57,9 @@ wow
 
 끝입니다. 의존성도, 빌드 과정도 없어요 — 파이썬과 당신의 시만 있으면 됩니다.
 
+> **파이썬 버전:** Eunoia는 **3.9 이상**에서 실행되며, 가능한 한 **최신 버전**(3.12+
+> 권장)을 쓰시길 권합니다 — 프로젝트는 그것으로 개발되고 테스트됩니다.
+
 ---
 
 ## 오리지널 생각: 시 한 편, 그리고 시집
@@ -300,8 +303,16 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 ## 기여
 
 설계 단계 프로젝트입니다. 코드보다 **아이디어**가 더 환영받습니다 — 시적인 단어,
-한국어 감성의 비유, 이름 논쟁 모두요. 이슈나 PR로 열어주세요. 그리고
-`whisper the soul`에 인사도 건네보세요.
+한국어 감성의 비유, 이름 논쟁 모두요.
+
+- **시가 넘어졌다?** → [버그 리포트 열기](https://github.com/spidychoipro/eunoia/issues/new/choose)
+- **새 단어를 제안하고 싶다?** → [단어 요청 열기](https://github.com/spidychoipro/eunoia/issues/new/choose)
+- **어떻게 돌아가는지** → [CONTRIBUTING.md](CONTRIBUTING.md)
+- **친절함이 먼저** → [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+두 가이드는 저장소 루트에 있어서, 이슈/PR을 새로 열 때 GitHub가 **오른쪽
+사이드바**(Contributing guidelines)에 자동으로 띄워줍니다. 무엇보다 먼저:
+`whisper the soul`.
 
 ---
 

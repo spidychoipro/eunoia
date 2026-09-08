@@ -58,6 +58,10 @@ wow
 
 That's it. No dependencies, no build step — just Python and your poem.
 
+> **Python version:** Eunoia runs on Python **3.9+** and we recommend using the
+> **latest release** you can (3.12 or newer) — that's what the project is
+> developed and tested against.
+
 ---
 
 ## The original idea: a poem, and a poetry collection
@@ -304,8 +308,16 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 ## Contributing
 
 This is a design-phase project. Ideas are as welcome as code — poetic keywords,
-Korean-flavored metaphors, and naming debate included. Open an issue or a pull
-request. And say hello to `whisper the soul`.
+Korean-flavored metaphors, and naming debate included.
+
+- **A poem fell over?** → [open a bug report](https://github.com/spidychoipro/eunoia/issues/new/choose)
+- **A new word to propose?** → [open a word request](https://github.com/spidychoipro/eunoia/issues/new/choose)
+- **How everything works** → [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Kindness first** → [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+Both guides live at the repository root, so GitHub also surfaces them in the
+right sidebar (Contributing guidelines) when someone opens a new issue or pull
+request. And before anything else: `whisper the soul`.
 
 ---
 

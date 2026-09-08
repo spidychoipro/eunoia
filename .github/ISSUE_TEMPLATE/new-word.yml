@@ -1,0 +1,53 @@
+name: 🌸 A new word for Eunoia (idea / feature)
+description: Propose a poetic keyword, an operator, a number word, or a whole new kind of verse.
+title: "[poetry]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        새 단어가 에우노이아에 들어오고 싶어 합니다.
+        Feel free to write in English or 한국어.
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea, in a line or two
+      description: What should Eunoia be able to say that it cannot say yet?
+    validations:
+      required: true
+  - type: input
+    id: word
+    attributes:
+      label: Proposed word or words
+      placeholder: "e.g. until, breathe, may, shared among"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of word is this?
+      multiple: false
+      options:
+        - a new statement / keyword
+        - a new operator
+        - a number word
+        - a helper word (like "the", "be")
+        - something else entirely
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: An example verse
+      description: Show the word at work, exactly as a poem would read.
+      placeholder: |
+        let dawn be until the moon lets go
+        whisper the rain that never quite lands
+      render: euo
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it feels like Eunoia
+      description: Does it read like a poem? Is it simple, and does it need no parentheses?
+    validations:
+      required: true

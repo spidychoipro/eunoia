@@ -1,0 +1,56 @@
+name: 🌱 A verse stumbles (bug report)
+description: A poem fell over somewhere. Show us the broken lines.
+title: "[bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        한 편의 시가 넘어졌습니다. 고쳐줘서 고마워요.
+        Feel free to write in English or 한국어.
+  - type: input
+    id: version
+    attributes:
+      label: Eunoia version
+      description: From `eunoia` or `Pipfile` / `pyproject.toml`.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: e.g. 3.12, 3.13, 3.14
+      placeholder: "3.14"
+    validations:
+      required: true
+  - type: textarea
+    id: poem
+    attributes:
+      label: The smallest poem that falls
+      description: The shortest .euo file that reproduces the stumble.
+      value: |
+        let hello be "wow"
+        whisper hello
+      render: euo
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the poem should have said
+      description: What output did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What the poem actually said
+      description: Paste the output or the error message.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else worth whispering — OS, terminal, the hour of the night.
