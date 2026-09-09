@@ -272,7 +272,9 @@ src/eunoia/        the interpreter
   parser.py        turns tokens into statements
   interpreter.py   makes the poem run
   soul.py          the inner creed, whispered on request
-  cli.py           recite, write & chant
+  transpile.py     turns verses into plain Python
+  anthology.py     binds and unbinds .euoc collections
+  cli.py           recite, translate, bind, unbind, write & chant
   ui.py            the muse — a tiny IDLE for the language (tkinter)
 poems/             example poems (.euo) that actually run
 tests/             unit tests (python -m unittest)
@@ -284,11 +286,18 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 
 ## CLI
 
-| Command                       | Meaning                                   |
-|-------------------------------|-------------------------------------------|
-| `eunoia recite <file.euo>`    | run a poem                                |
-| `eunoia write`                | open the muse (a tiny IDLE, tkinter)      |
-| `eunoia chant`                | interactive recitation (REPL)             |
+| Command                                       | Meaning                                        |
+|-----------------------------------------------|------------------------------------------------|
+| `eunoia recite <file.euo>`                    | run a poem                                     |
+| `eunoia recite <file.euoc>`                   | unfold and recite an anthology                 |
+| `eunoia translate <file.euo> [-o out.py]`     | turn a poem into plain Python                  |
+| `eunoia bind a.euo b.euo -o c.euoc`           | gather poems into an anthology                 |
+| `eunoia unbind c.euoc`                        | open an anthology and read its poems again     |
+| `eunoia write`                                | open the muse (a tiny IDLE, tkinter)           |
+| `eunoia chant`                                | interactive recitation (REPL)                  |
+
+An anthology (`.euoc`) is compiled but never locked: it keeps every poem word
+for word, openly, so `unbind` can always give the verses back.
 
 ---
 
@@ -320,7 +329,8 @@ anywhere, double-click, and write.
 - [x] `recite` and `chant`
 - [x] `whisper the soul`
 - [x] The muse — a tiny IDLE, plus a single-file `eunoia.exe`
-- [ ] `bind` — compiling poems into an anthology (`.euoc`)
+- [x] `translate` — poems into plain Python
+- [x] `bind` & `unbind` — `.euoc` anthologies, always decodable
 - [ ] "Quote the foreign poet" escape hatch
 - [ ] Control flow as rhythm (breathe / until / whenever)
 - [ ] Neovim plugin

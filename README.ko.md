@@ -267,7 +267,9 @@ src/eunoia/        인터프리터
   parser.py        토큰을 문장으로
   interpreter.py   시를 실행시키는 영혼
   soul.py          속삭이면 들려주는 신조
-  cli.py           recite, write & chant
+  transpile.py     시를 평범한 Python으로 옮기는 도구
+  anthology.py     .euoc 시집을 묶고(bind) 푸는(unbind) 도구
+  cli.py           recite, translate, bind, unbind, write & chant
   ui.py            뮤즈 — 언어 전용 작은 IDLE (tkinter)
 poems/             실제로 실행되는 예제 시 (.euo)
 tests/             단위 테스트 (python -m unittest)
@@ -279,11 +281,18 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 
 ## CLI
 
-| 명령                         | 의미                                   |
-|------------------------------|----------------------------------------|
-| `eunoia recite <file.euo>`   | 시를 낭송한다 (= 실행)                 |
-| `eunoia write`               | 뮤즈를 연다 (작은 IDLE, tkinter)      |
-| `eunoia chant`               | 대화형 낭독회 (= REPL)                 |
+| 명령                                         | 의미                                        |
+|----------------------------------------------|---------------------------------------------|
+| `eunoia recite <file.euo>`                   | 시를 낭송한다 (= 실행)                      |
+| `eunoia recite <file.euoc>`                  | 시집을 펼쳐 낭송한다                        |
+| `eunoia translate <file.euo> [-o out.py]`    | 시를 평범한 Python으로 옮긴다               |
+| `eunoia bind a.euo b.euo -o c.euoc`          | 시들을 한 시집으로 묶는다                    |
+| `eunoia unbind c.euoc`                       | 시집을 열고 원문을 다시 읽는다               |
+| `eunoia write`                               | 뮤즈를 연다 (작은 IDLE, tkinter)            |
+| `eunoia chant`                               | 대화형 낭독회 (= REPL)                      |
+
+시집(`.euoc`)은 컴파일되었지만 절대 잠기지 않습니다 — 모든 시를 원문 그대로
+열어서 보관하기에, `unbind`는 언제든 시를 돌려줍니다.
 
 ---
 
@@ -315,7 +324,8 @@ pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
 - [x] `recite`와 `chant`
 - [x] `whisper the soul`
 - [x] 뮤즈 — 작은 IDLE + 단일 파일 `eunoia.exe`
-- [ ] `bind` — 시를 시집으로 컴파일 (`.euoc`)
+- [x] `translate` — 시를 평범한 Python으로
+- [x] `bind` & `unbind` — `.euoc` 시집, 언제나 해독 가능
 - [ ] "남의 시 인용" 비상구
 - [ ] 흐름을 리듬으로 (breathe / until / whenever)
 - [ ] 네오빔 플러그인
