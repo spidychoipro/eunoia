@@ -50,8 +50,14 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     if args.command == "write":
-        from .ui import main as ui_main
-
+        try:
+            from .ui import main as ui_main
+        except ImportError:
+            ap.error(
+                "the muse is a separate package - grab eunoia-app, or pip install "
+                "it alongside the language"
+            )
+            return 1
         return ui_main()
     if args.command == "chant":
         chant()
