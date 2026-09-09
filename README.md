@@ -272,7 +272,8 @@ src/eunoia/        the interpreter
   parser.py        turns tokens into statements
   interpreter.py   makes the poem run
   soul.py          the inner creed, whispered on request
-  cli.py           recite & chant
+  cli.py           recite, write & chant
+  ui.py            the muse — a tiny IDLE for the language (tkinter)
 poems/             example poems (.euo) that actually run
 tests/             unit tests (python -m unittest)
 assets/prompts/    image prompts for the logo and the file icon
@@ -286,7 +287,28 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 | Command                       | Meaning                                   |
 |-------------------------------|-------------------------------------------|
 | `eunoia recite <file.euo>`    | run a poem                                |
+| `eunoia write`                | open the muse (a tiny IDLE, tkinter)      |
 | `eunoia chant`                | interactive recitation (REPL)             |
+
+---
+
+## The muse — write like a poet
+
+`eunoia write` opens a small IDLE for the language: compose a poem on the
+left, watch its echo on the right. Reproduces the interpreter exactly, so the
+page cannot lie — plus a help menu, `whisper the soul`, open/save for `.euo`
+files, line numbers, and Ctrl+Enter to recite.
+
+**One-file app.** Build a single Windows executable with PyInstaller:
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
+# → dist/eunoia.exe
+```
+
+`app.py` is a tiny entry point that opens the muse. Drop `dist/eunoia.exe`
+anywhere, double-click, and write.
 
 ---
 
@@ -297,6 +319,7 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 - [x] Core grammar confirmed and implemented
 - [x] `recite` and `chant`
 - [x] `whisper the soul`
+- [x] The muse — a tiny IDLE, plus a single-file `eunoia.exe`
 - [ ] `bind` — compiling poems into an anthology (`.euoc`)
 - [ ] "Quote the foreign poet" escape hatch
 - [ ] Control flow as rhythm (breathe / until / whenever)

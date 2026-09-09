@@ -38,17 +38,21 @@ def chant() -> None:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         prog="eunoia",
-        description="recite a .euo poem, or open the chant (a live REPL)",
+        description="recite a .euo poem, open the muse (a tiny IDLE), or chant (a live REPL)",
     )
     ap.add_argument(
         "command",
         nargs="?",
-        choices=["recite", "chant"],
-        help="recite a .euo file, or open the chant (a live REPL)",
+        choices=["recite", "write", "chant"],
+        help="recite a .euo file, write in the muse (a tiny IDLE), or chant (a live REPL)",
     )
     ap.add_argument("file", nargs="?", help="path to a .euo poem")
     args = ap.parse_args(argv)
 
+    if args.command == "write":
+        from .ui import main as ui_main
+
+        return ui_main()
     if args.command == "chant":
         chant()
         return 0

@@ -267,7 +267,8 @@ src/eunoia/        인터프리터
   parser.py        토큰을 문장으로
   interpreter.py   시를 실행시키는 영혼
   soul.py          속삭이면 들려주는 신조
-  cli.py           recite & chant
+  cli.py           recite, write & chant
+  ui.py            뮤즈 — 언어 전용 작은 IDLE (tkinter)
 poems/             실제로 실행되는 예제 시 (.euo)
 tests/             단위 테스트 (python -m unittest)
 assets/prompts/    로고와 파일 아이콘 이미지 프롬프트
@@ -281,7 +282,28 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 | 명령                         | 의미                                   |
 |------------------------------|----------------------------------------|
 | `eunoia recite <file.euo>`   | 시를 낭송한다 (= 실행)                 |
+| `eunoia write`               | 뮤즈를 연다 (작은 IDLE, tkinter)      |
 | `eunoia chant`               | 대화형 낭독회 (= REPL)                 |
+
+---
+
+## 뮤즈 — 시인처럼 써 보기
+
+`eunoia write`는 언어 전용의 작은 IDLE을 엽니다. 왼쪽에서 시를 쓰고,
+오른쪽에서 그 울림(echo)을 봅니다. 인터프리터를 그대로 재현하므로 종이가
+거짓말하지 않아요 — 도움말 메뉴, `whisper the soul`, `.euo` 열기/저장,
+줄 번호, Ctrl+Enter 낭송까지 갖췄습니다.
+
+**단일 실행 파일.** PyInstaller로 Windows 단일 exe를 만듭니다:
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
+# → dist/eunoia.exe
+```
+
+`app.py`는 뮤즈를 여는 아주 작은 진입점입니다. `dist/eunoia.exe`를 어디에든
+갖다 놓고, 두 번 클릭하고, 쓰면 됩니다.
 
 ---
 
@@ -292,6 +314,7 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 - [x] 핵심 문법 확정 및 구현
 - [x] `recite`와 `chant`
 - [x] `whisper the soul`
+- [x] 뮤즈 — 작은 IDLE + 단일 파일 `eunoia.exe`
 - [ ] `bind` — 시를 시집으로 컴파일 (`.euoc`)
 - [ ] "남의 시 인용" 비상구
 - [ ] 흐름을 리듬으로 (breathe / until / whenever)
