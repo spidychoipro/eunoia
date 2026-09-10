@@ -288,13 +288,14 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 
 | Command                                       | Meaning                                        |
 |-----------------------------------------------|------------------------------------------------|
+| `eunoia`                                      | open the interactive recitation, like `py`     |
 | `eunoia recite <file.euo>`                    | run a poem                                     |
 | `eunoia recite <file.euoc>`                   | unfold and recite an anthology                 |
 | `eunoia translate <file.euo> [-o out.py]`     | turn a poem into plain Python                  |
 | `eunoia bind a.euo b.euo -o c.euoc`           | gather poems into an anthology                 |
 | `eunoia unbind c.euoc`                        | open an anthology and read its poems again     |
 | `eunoia write`                                | open the muse (a tiny IDLE, tkinter)           |
-| `eunoia chant`                                | interactive recitation (REPL)                  |
+| `eunoia chant`                                | interactive recitation, by another name        |
 
 An anthology (`.euoc`) is compiled but never locked: it keeps every poem word
 for word, openly, so `unbind` can always give the verses back.
@@ -322,6 +323,8 @@ anywhere, double-click, and write.
 ---
 
 ## Roadmap
+
+The full road to 1.0 lives in [ROADMAP.md](ROADMAP.md).
 
 - [x] Repository created
 - [x] Name decided: **Eunoia**

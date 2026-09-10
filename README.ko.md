@@ -283,13 +283,14 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 
 | 명령                                         | 의미                                        |
 |----------------------------------------------|---------------------------------------------|
+| `eunoia`                                     | 대화형 낭독을 연다 (`py`처럼)               |
 | `eunoia recite <file.euo>`                   | 시를 낭송한다 (= 실행)                      |
 | `eunoia recite <file.euoc>`                  | 시집을 펼쳐 낭송한다                        |
 | `eunoia translate <file.euo> [-o out.py]`    | 시를 평범한 Python으로 옮긴다               |
 | `eunoia bind a.euo b.euo -o c.euoc`          | 시들을 한 시집으로 묶는다                    |
 | `eunoia unbind c.euoc`                       | 시집을 열고 원문을 다시 읽는다               |
 | `eunoia write`                               | 뮤즈를 연다 (작은 IDLE, tkinter)            |
-| `eunoia chant`                               | 대화형 낭독회 (= REPL)                      |
+| `eunoia chant`                               | 대화형 낭독회 — 다른 이름일 뿐               |
 
 시집(`.euoc`)은 컴파일되었지만 절대 잠기지 않습니다 — 모든 시를 원문 그대로
 열어서 보관하기에, `unbind`는 언제든 시를 돌려줍니다.
@@ -317,6 +318,8 @@ pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
 ---
 
 ## 로드맵
+
+1.0까지의 전체 길은 [ROADMAP.md](ROADMAP.md)에 있습니다.
 
 - [x] 저장소 생성
 - [x] 이름 결정: **Eunoia**

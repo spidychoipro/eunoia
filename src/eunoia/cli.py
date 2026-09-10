@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from . import __version__
 from .anthology import (
     AnthologyError,
     bind_sources,
@@ -32,11 +33,13 @@ def run_file(path: str) -> None:
 
 
 def chant() -> None:
-    print("Eunoia: let us begin. (press the empty line to rest)")
+    print(f"Eunoia {__version__} - a language that reads like poetry.")
+    print("Type a verse, line by line; an empty line rests the poem.")
+    print('Try: let hello be "wow", then whisper hello')
     interp = Interpreter()
     while True:
         try:
-            line = input("  ")
+            line = input(">>> ")
         except EOFError:
             break
         if not line.strip():
@@ -83,6 +86,9 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         return ui_main()
     if args.command == "chant":
+        chant()
+        return 0
+    if args.command is None and not args.poem:
         chant()
         return 0
 
