@@ -11,8 +11,9 @@ the grammar freezes, the spec is published, and every verse still runs.
 - Number words (`two`, `a dozen`, `one hundred and five`) and arithmetic
   words (`and`/`with`, `without`, `times`, `over`/`shared among`, `keeps`)
 - `whisper the soul` and the creed behind it
-- `recite`, the interactive chant (`eunoia` alone, like `py`), the muse
-  (a tiny IDLE in tkinter) and the single-file `eunoia.exe`
+- `recite`, the interactive chant (`eunoia` alone, like `py`), and **Ink**,
+  where thought becomes words — a tiny IDLE in tkinter, plus the single-file
+  `ink.exe`
 - `translate` — poems into plain Python, whose output matches the
   interpreter word for word
 - `bind` / `unbind` — `.euoc` anthologies, compiled but never locked
@@ -51,7 +52,7 @@ it must be able to look left and right, and to go round.
 
 - **CI** — GitHub Actions runs the whole suite on Python 3.9–3.14 every push
 - **Quality gates** — ruff and mypy, quiet and steady
-- **Editor love** — the Neovim plugin, and syntax tinting inside the muse
+- **Editor love** — the Neovim plugin, and syntax tinting inside Ink
 - **Errors, all of them** — every stumble reads like a gentle line, not a
   slammed door
 - **Grammar freeze review** — a deliberate meeting with the creed before the

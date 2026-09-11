@@ -68,7 +68,7 @@ def main(argv: list[str] | None = None) -> int:
         choices=["recite", "translate", "bind", "unbind", "write", "chant"],
         help=(
             "recite (.euo or .euoc), translate to Python, bind poems into an "
-            ".euoc anthology, unbind it, write in the muse, or chant (a live REPL)"
+            ".euoc anthology, unbind it, write in Ink (a tiny IDLE), or chant (a live REPL)"
         ),
     )
     ap.add_argument("poem", nargs="*", help="one or more poems (.euo / .euoc)")
@@ -80,7 +80,7 @@ def main(argv: list[str] | None = None) -> int:
             from .ui import main as ui_main
         except ImportError:
             ap.error(
-                "the muse is a separate package - grab eunoia-app, or pip install "
+                "Ink is a separate package - grab eunoia-app, or pip install "
                 "it alongside the language"
             )
             return 1

@@ -270,7 +270,7 @@ src/eunoia/        인터프리터
   transpile.py     시를 평범한 Python으로 옮기는 도구
   anthology.py     .euoc 시집을 묶고(bind) 푸는(unbind) 도구
   cli.py           recite, translate, bind, unbind, write & chant
-  ui.py            뮤즈 — 언어 전용 작은 IDLE (tkinter)
+  ui.py            Ink — 생각이 글이 되는 곳 (작은 IDLE, tkinter)
 poems/             실제로 실행되는 예제 시 (.euo)
 tests/             단위 테스트 (python -m unittest)
 assets/prompts/    로고와 파일 아이콘 이미지 프롬프트
@@ -289,7 +289,7 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 | `eunoia translate <file.euo> [-o out.py]`    | 시를 평범한 Python으로 옮긴다               |
 | `eunoia bind a.euo b.euo -o c.euoc`          | 시들을 한 시집으로 묶는다                    |
 | `eunoia unbind c.euoc`                       | 시집을 열고 원문을 다시 읽는다               |
-| `eunoia write`                               | 뮤즈를 연다 (작은 IDLE, tkinter)            |
+| `eunoia write`                               | Ink를 연다 (작은 IDLE, tkinter)          |
 | `eunoia chant`                               | 대화형 낭독회 — 다른 이름일 뿐               |
 
 시집(`.euoc`)은 컴파일되었지만 절대 잠기지 않습니다 — 모든 시를 원문 그대로
@@ -297,23 +297,25 @@ assets/icons/      로고와 .euo 파일 아이콘 (SVG로 직접 그림)
 
 ---
 
-## 뮤즈 — 시인처럼 써 보기
+## Ink — 시인처럼 써 보기
 
-`eunoia write`는 언어 전용의 작은 IDLE을 엽니다. 왼쪽에서 시를 쓰고,
-오른쪽에서 그 울림(echo)을 봅니다. 인터프리터를 그대로 재현하므로 종이가
-거짓말하지 않아요 — 도움말 메뉴, `whisper the soul`, `.euo` 열기/저장,
-줄 번호, Ctrl+Enter 낭송까지 갖췄습니다.
+시인은 원고지에 시를 쓰고, 그 시를 눈에 보이게 만드는 것은 결국 잉크입니다.
+그래서 그 작문 앱의 이름을 **Ink**로 지었습니다 — 생각이 글이 되는 바로 그
+곳. `eunoia write`가 그것을 엽니다 (또는 `ink.exe` 실행). 왼쪽에서
+시를 쓰고, 오른쪽에서 그 울림(echo)을 봅니다. 인터프리터를 그대로
+재현하므로 종이가 거짓말하지 않아요 — 도움말 메뉴, `whisper the soul`,
+`.euo` 열기/저장, 줄 번호, Ctrl+Enter 낭송까지 갖췄습니다.
 
 **단일 실행 파일.** PyInstaller로 Windows 단일 exe를 만듭니다:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
-# → dist/eunoia.exe
+pyinstaller --onefile --windowed --clean --name ink --paths src app.py
+# → dist/ink.exe
 ```
 
-`app.py`는 뮤즈를 여는 아주 작은 진입점입니다. `dist/eunoia.exe`를 어디에든
-갖다 놓고, 두 번 클릭하고, 쓰면 됩니다.
+`app.py`는 Ink를 여는 아주 작은 진입점입니다. `dist/ink.exe`를 어디에든
+갖다 놓고, 두 번 클릭하고, 쓰면 됩니다. 잉크는 거짓말하지 않아요.
 
 ---
 
@@ -326,7 +328,7 @@ pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
 - [x] 핵심 문법 확정 및 구현
 - [x] `recite`와 `chant`
 - [x] `whisper the soul`
-- [x] 뮤즈 — 작은 IDLE + 단일 파일 `eunoia.exe`
+- [x] Ink — 작문 앱 IDLE + 단일 파일 `ink.exe`
 - [x] `translate` — 시를 평범한 Python으로
 - [x] `bind` & `unbind` — `.euoc` 시집, 언제나 해독 가능
 - [ ] "남의 시 인용" 비상구

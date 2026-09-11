@@ -275,7 +275,7 @@ src/eunoia/        the interpreter
   transpile.py     turns verses into plain Python
   anthology.py     binds and unbinds .euoc collections
   cli.py           recite, translate, bind, unbind, write & chant
-  ui.py            the muse — a tiny IDLE for the language (tkinter)
+  ui.py            Ink — where thought becomes words (tiny IDLE, tkinter)
 poems/             example poems (.euo) that actually run
 tests/             unit tests (python -m unittest)
 assets/prompts/    image prompts for the logo and the file icon
@@ -294,7 +294,7 @@ assets/icons/      the logo and the .euo file icon, drawn as SVG
 | `eunoia translate <file.euo> [-o out.py]`     | turn a poem into plain Python                  |
 | `eunoia bind a.euo b.euo -o c.euoc`           | gather poems into an anthology                 |
 | `eunoia unbind c.euoc`                        | open an anthology and read its poems again     |
-| `eunoia write`                                | open the muse (a tiny IDLE, tkinter)           |
+| `eunoia write`                                | open Ink, where a poem is written (tiny IDLE)   |
 | `eunoia chant`                                | interactive recitation, by another name        |
 
 An anthology (`.euoc`) is compiled but never locked: it keeps every poem word
@@ -302,23 +302,25 @@ for word, openly, so `unbind` can always give the verses back.
 
 ---
 
-## The muse — write like a poet
+## Ink — write like a poet
 
-`eunoia write` opens a small IDLE for the language: compose a poem on the
-left, watch its echo on the right. Reproduces the interpreter exactly, so the
-page cannot lie — plus a help menu, `whisper the soul`, open/save for `.euo`
-files, line numbers, and Ctrl+Enter to recite.
+A poet writes a poem on manuscript paper, and what makes it visible is the
+ink. So the little app is called **Ink**: the place where thought becomes
+words. `eunoia write` opens it (or run `ink.exe`) — compose a poem on the
+left, watch its echo on the right. It reproduces the interpreter exactly, so
+the page cannot lie — plus a help menu, `whisper the soul`, open/save for
+`.euo` files, line numbers, and Ctrl+Enter to recite.
 
 **One-file app.** Build a single Windows executable with PyInstaller:
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile --windowed --clean --name eunoia --paths src app.py
-# → dist/eunoia.exe
+pyinstaller --onefile --windowed --clean --name ink --paths src app.py
+# → dist/ink.exe
 ```
 
-`app.py` is a tiny entry point that opens the muse. Drop `dist/eunoia.exe`
-anywhere, double-click, and write.
+`app.py` is a tiny entry point that opens Ink. Drop `dist/ink.exe` anywhere,
+double-click, and write. The ink will not lie.
 
 ---
 
@@ -331,7 +333,7 @@ The full road to 1.0 lives in [ROADMAP.md](ROADMAP.md).
 - [x] Core grammar confirmed and implemented
 - [x] `recite` and `chant`
 - [x] `whisper the soul`
-- [x] The muse — a tiny IDLE, plus a single-file `eunoia.exe`
+- [x] Ink — a tiny IDLE, plus a single-file `ink.exe`
 - [x] `translate` — poems into plain Python
 - [x] `bind` & `unbind` — `.euoc` anthologies, always decodable
 - [ ] "Quote the foreign poet" escape hatch

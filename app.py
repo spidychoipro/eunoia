@@ -1,4 +1,4 @@
-"""Entry point for the single-file Eunoia app (built with PyInstaller)."""
+"""Entry point for the single-file Ink app (built with PyInstaller)."""
 
 import sys
 

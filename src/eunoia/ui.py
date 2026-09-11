@@ -1,7 +1,9 @@
-"""The muse — a tiny IDLE for composing and reciting Eunoia poems.
+"""Ink — where thought becomes words for the Eunoia language.
 
-Run it from the console with `eunoia write`, or launch the single
-executable. Built on tkinter, the same toolkit that powers IDLE itself.
+A tiny IDLE for composing and reciting poems: the place where a poem is
+written, the ink that makes it visible. Run it with `eunoia write`, or
+launch the single executable. Built on tkinter, the same toolkit that
+powers IDLE itself.
 """
 
 from __future__ import annotations
@@ -43,7 +45,7 @@ class EunoiaEditor(tk.Tk):
 
     def __init__(self) -> None:
         super().__init__()
-        self.title(f"Eunoia {__version__} — write, and recite")
+        self.title(f"Ink · Eunoia {__version__} — write, and recite")
         self.geometry("980x660")
         self.minsize(700, 460)
         self.configure(bg=PALETTE["paper"])
@@ -323,10 +325,10 @@ class EunoiaEditor(tk.Tk):
 
     def _about(self) -> None:
         messagebox.showinfo(
-            "About Eunoia",
-            f"Eunoia {__version__}\n\n"
-            "a programming language whose code reads like poetry.\n"
-            "write on the left, recite on the right.\n\n"
+            "About Ink",
+            f"Ink {__version__} — where thought becomes words\n\n"
+            "a tiny IDLE for Eunoia, a language whose code reads like poetry.\n"
+            "write on the left, recite on the right. the ink will not lie.\n\n"
             "whisper the soul, and it will whisper back.",
             parent=self,
         )
